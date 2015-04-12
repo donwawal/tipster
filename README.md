@@ -1,9 +1,9 @@
 # tipster
-iOS app that suggests tip amounts based on an initial bill.
+iOS app that calculates tips based on an initial bill.
 
-This is an iOS application for suggesting tip amounts based on an intial bill.
+This is an iOS application that calculates a suggested tip based on an initial bill.
 
-Time spent: 2.5 hours spent in total
+Time spent: 2.5 hours total
 
 Completed user stories:
  * [x] Required: User can view calculated tip and total based on indicated bill and three possible tip percentages.
