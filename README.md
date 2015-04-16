@@ -15,7 +15,7 @@ Notes: text field for the bill amount is selected as soon as the app launches - 
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](/tipster/Images.xcassets/tipster_jules.gif)
+![Video Walkthrough](/tipster/Images.xcassets/tipster_jules_v2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
