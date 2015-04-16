@@ -8,19 +8,39 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var tipTableView: UITableView!
+    
+    // Variables for numbers to be calculated and displayed
+    let tipPercentages = [0.18, 0.2, 0.22]
+    var billAmount: Double = 0.0
+    var tipAmount: Double = 0.0
+    var totalAmount: Double = 0.0
+    var splitAmounts = [0.0, 0.0, 0.0, 0.0]
+
+    // Images and array for icons in split amount section
+    let splitOne = UIImage(named: "splitOne")
+    let splitTwo = UIImage(named: "splitTwo")
+    let splitThree = UIImage(named: "splitThree")
+    let splitFour = UIImage(named: "splitFour")
+    
+    var  splitImages: [UIImage] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tipLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
         billField.becomeFirstResponder()
+        self.tipTableView.alpha = 0
+        self.tipControl.alpha = 0
+        
+        splitImages.append(splitOne!)
+        splitImages.append(splitTwo!)
+        splitImages.append(splitThree!)
+        splitImages.append(splitFour!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,18 +49,72 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
-        var billAmount = NSString(string: billField.text).doubleValue
-        var tipPercentages = [0.18, 0.2, 0.22]
+
+        billAmount = NSString(string: billField.text).doubleValue
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
-        var tipAmount = billAmount * tipPercentage
-        var totalAmount = billAmount + tipAmount
+        tipAmount = billAmount * tipPercentage
+        totalAmount = billAmount + tipAmount
+       
+        splitAmounts[0] = totalAmount
+        splitAmounts[1] = totalAmount / 2
+        splitAmounts[2] = totalAmount / 3
+        splitAmounts[3] = totalAmount / 4
         
-        tipLabel.text = String(format: "$%.2f", tipAmount)
-        totalLabel.text = String(format: "$%.2f", totalAmount)
+        self.tipTableView.reloadData()
+        
+        UIView.animateWithDuration(0.4, animations:{
+            self.billField.frame = CGRect(x:26, y:67, width: self.billField.frame.width, height: 100)
+            self.tipTableView.alpha = 1
+            self.tipControl.alpha = 1
+        })
     }
     
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        }
+        else {
+            return splitAmounts.count
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.tipTableView.dequeueReusableCellWithIdentifier("tipCell") as! UITableViewCell
+
+        let section = indexPath.section
+        
+        if section == 0 {
+            cell.textLabel!.text = nil
+            cell.detailTextLabel!.text =  String(format: "$%.2f", tipAmount)
+        }
+        else {
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+            
+            switch indexPath.row
+            {
+            case 0:
+                cell.detailTextLabel?.font = UIFont(name: "Helvetica Neue", size: 30.0)
+            default:
+                cell.detailTextLabel?.font = UIFont(name: "System", size: 17.0)
+            }
+            
+            cell.imageView!.image = splitImages[indexPath.row]
+            cell.detailTextLabel!.text =  String(format: "$%.2f", splitAmounts[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
 }
