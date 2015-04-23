@@ -76,9 +76,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         let section = indexPath.section
         
+        // Creating number formatter to later format numbers based on current locale
+        var numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        numberFormatter.locale = NSLocale.currentLocale()
+        
         if section == 0 {
             cell.textLabel!.text = "Tip:"
-            cell.detailTextLabel!.text =  String(format: "$%.2f", tipAmount)
+            cell.detailTextLabel!.text =  "$\(numberFormatter.stringFromNumber(tipAmount)!)"
             cell.detailTextLabel!.textColor = UIColor.whiteColor()
         }
         else {
@@ -93,7 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             
             cell.imageView!.image = splitImages[indexPath.row]
-            cell.detailTextLabel!.text =  String(format: "$%.2f", splitAmounts[indexPath.row])
+            cell.detailTextLabel!.text = "$\(numberFormatter.stringFromNumber(splitAmounts[indexPath.row])!)"
         }
         
         return cell
