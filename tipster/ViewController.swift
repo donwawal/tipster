@@ -49,7 +49,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tipTableView.reloadData()
         
         UIView.animateWithDuration(0.4, animations:{
-            self.billField.frame = CGRect(x:26, y:67, width: self.billField.frame.width, height: 100)
             self.tipTableView.alpha = 1
             self.tipControl.alpha = 1
         })

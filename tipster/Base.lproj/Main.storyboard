@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
@@ -8,13 +8,22 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WJl-ET-WBd"/>
+                        <viewControllerLayoutGuide type="bottom" id="rsF-QJ-xqk"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="Gqk-pH-F4O">
-                                <rect key="frame" x="26" y="75" width="268" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tipster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Uu-rh-Rco">
+                                <rect key="frame" x="266" y="28" width="69" height="23"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gqk-pH-F4O">
+                                <rect key="frame" x="16" y="97" width="568" height="59"/>
                                 <color key="backgroundColor" red="0.51764705879999995" green="0.96078431369999995" blue="0.25490196079999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
@@ -22,16 +31,8 @@
                                     <action selector="onEditingChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="i1b-ub-PBJ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tipster" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Uu-rh-Rco">
-                                <rect key="frame" x="126" y="27" width="69" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Yjm-Jt-t8o">
-                                <rect key="frame" x="0.0" y="251" width="320" height="323"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-Jt-t8o">
+                                <rect key="frame" x="0.0" y="251" width="600" height="349"/>
                                 <color key="backgroundColor" red="0.45307223720000001" green="0.68906319630000001" blue="0.39922610279999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.45307223720000001" green="0.68906319630000001" blue="0.39922610279999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -64,9 +65,8 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="P6V-TD-oJc"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="zX9-DT-Kl4">
-                                <rect key="frame" x="26" y="196" width="268" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zX9-DT-Kl4">
+                                <rect key="frame" x="16" y="196" width="568" height="29"/>
                                 <segments>
                                     <segment title="18%"/>
                                     <segment title="20%"/>
@@ -79,6 +79,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.64313725490196083" green="0.95294117647058818" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Yjm-Jt-t8o" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="301-5Z-DOi"/>
+                            <constraint firstItem="Yjm-Jt-t8o" firstAttribute="top" secondItem="zX9-DT-Kl4" secondAttribute="bottom" constant="27" id="6sc-HE-fSF"/>
+                            <constraint firstAttribute="trailing" secondItem="Gqk-pH-F4O" secondAttribute="trailing" constant="16" id="Bwe-HR-lRO"/>
+                            <constraint firstItem="zX9-DT-Kl4" firstAttribute="centerX" secondItem="Yjm-Jt-t8o" secondAttribute="centerX" id="C1O-fg-oyl"/>
+                            <constraint firstAttribute="trailing" secondItem="zX9-DT-Kl4" secondAttribute="trailing" constant="16" id="DUT-sP-ZRA"/>
+                            <constraint firstItem="2Uu-rh-Rco" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="28" id="MvN-OM-5PX"/>
+                            <constraint firstItem="zX9-DT-Kl4" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="196" id="PZw-vS-qNQ"/>
+                            <constraint firstAttribute="centerX" secondItem="2Uu-rh-Rco" secondAttribute="centerX" id="Pqr-wm-JZS"/>
+                            <constraint firstItem="zX9-DT-Kl4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="g7i-lb-pce"/>
+                            <constraint firstItem="Yjm-Jt-t8o" firstAttribute="bottom" secondItem="rsF-QJ-xqk" secondAttribute="top" id="ksD-2E-Nb7"/>
+                            <constraint firstItem="zX9-DT-Kl4" firstAttribute="top" secondItem="Gqk-pH-F4O" secondAttribute="bottom" constant="40" id="usE-eC-hDj"/>
+                            <constraint firstItem="Gqk-pH-F4O" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="yvD-NU-H6P"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="3oG-Q0-4fN" appends="YES" id="M86-bZ-6b4"/>
                         </connections>
@@ -97,12 +111,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="202" y="288"/>
+            <point key="canvasLocation" x="378" y="304"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
