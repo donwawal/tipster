@@ -19,16 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var billAmount: Double = 0.0
     var tipAmount: Double = 0.0
     var totalAmount: Double = 0.0
-    var splitAmounts = [0.0, 0.0, 0.0, 0.0]
-
-    // Images and array for icons in split amount section
-    let splitOne = UIImage(named: "splitOne")
-    let splitTwo = UIImage(named: "splitTwo")
-    let splitThree = UIImage(named: "splitThree")
-    let splitFour = UIImage(named: "splitFour")
-    
+    var splitAmounts = [Double](count: 4, repeatedValue: 0.0)
     var  splitImages: [UIImage] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tipTableView.alpha = 0
         self.tipControl.alpha = 0
         
-        splitImages.append(splitOne!)
-        splitImages.append(splitTwo!)
-        splitImages.append(splitThree!)
-        splitImages.append(splitFour!)
+        splitImages = [UIImage(named: "splitOne")!, UIImage(named: "splitTwo")!, UIImage(named: "splitThree")!, UIImage(named: "splitFour")!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,10 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tipAmount = billAmount * tipPercentage
         totalAmount = billAmount + tipAmount
        
-        splitAmounts[0] = totalAmount
-        splitAmounts[1] = totalAmount / 2
-        splitAmounts[2] = totalAmount / 3
-        splitAmounts[3] = totalAmount / 4
+        splitAmounts = [totalAmount, totalAmount/2, totalAmount/3, totalAmount/4]
         
         self.tipTableView.reloadData()
         
@@ -92,8 +78,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let section = indexPath.section
         
         if section == 0 {
-            cell.textLabel!.text = nil
+            cell.textLabel!.text = "Tip:"
             cell.detailTextLabel!.text =  String(format: "$%.2f", tipAmount)
+            cell.detailTextLabel!.textColor = UIColor.whiteColor()
         }
         else {
             cell.detailTextLabel?.textColor = UIColor.blackColor()
@@ -103,7 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             case 0:
                 cell.detailTextLabel?.font = UIFont(name: "Helvetica Neue", size: 30.0)
             default:
-                cell.detailTextLabel?.font = UIFont(name: "System", size: 17.0)
+                cell.detailTextLabel?.font = UIFont(name: "System", size: 15.0)
             }
             
             cell.imageView!.image = splitImages[indexPath.row]
