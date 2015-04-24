@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tipTableView: UITableView!
     
     // Variables for numbers to be calculated and displayed
-    let tipPercentages = [0.18, 0.2, 0.22]
+    var tipPercentages = [0.18, 0.2, 0.22]
     var billAmount: Double = 0.0
     var tipAmount: Double = 0.0
     var totalAmount: Double = 0.0
@@ -25,18 +25,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        billField.becomeFirstResponder()
+        
         self.tipTableView.alpha = 0
         self.tipControl.alpha = 0
         
         splitImages = [UIImage(named: "splitOne")!, UIImage(named: "splitTwo")!, UIImage(named: "splitThree")!, UIImage(named: "splitFour")!]
+        
+        let settingsImage = UIImage(named: "settingsIcon")
+        
+        self.title = "tipster"
+        
+        billField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func changeMinTip(newMin: Double) -> (){
+        self.tipPercentages[0] = newMin
+    }
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
 
         billAmount = NSString(string: billField.text).doubleValue
