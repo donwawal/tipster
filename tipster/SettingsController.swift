@@ -33,7 +33,6 @@ class SettingsController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         self.title = "Settings"
-        //var defaults = NSUserDefaults.standardUserDefaults()
         
         if let minTipIsNotNil = defaults.objectForKey("minTip") as? Double {
             minTipStepper.value = minTipIsNotNil
@@ -52,19 +51,15 @@ class SettingsController: UIViewController {
     }
     
     @IBAction func stepperValueChanged(sender: UIStepper) {
-        //var defaults = NSUserDefaults.standardUserDefaults()
         switch sender.self {
         case minTipStepper:
             minTipLabel.text = "\(Int(sender.value).description)%"
-//            self.delegate?.minTipPercentageDidChange(minTipStepper.value / 100)
             defaults.setDouble(minTipStepper.value, forKey: "minTip")
         case medianTipStepper :
             medianTipLabel.text = "\(Int(sender.value).description)%"
-//            self.delegate?.medianTipPercentageDidChange(medianTipStepper.value / 100)
             defaults.setDouble(medianTipStepper.value, forKey: "medianTip")
         default:
             maxTipLabel.text = "\(Int(sender.value).description)%"
-//            self.delegate?.maxTipPercentageDidChange(maxTipStepper.value / 100)
             defaults.setDouble(maxTipStepper.value, forKey: "maxTip")
         }
         
