@@ -36,19 +36,40 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.title = "tipster"
         
         billField.becomeFirstResponder()
+        
+//        if let minTip = defaults.doubleForKey("minTip") as? Double {
+//            tipPercentages[0] = minTip / 100
+//            tipControl.setTitle(String(format: "%.f%" , tipPercentages[0]*100), forSegmentAtIndex: 0)
+//        }
     }
+    
+//    func minTipPercentageDidChange(value: Double) {
+//        tipPercentages[0] = value
+//    }
+//    func medianTipPercentageDidChange(value: Double){
+//        tipPercentages[1] = value
+//    }
+//    func maxTipPercentageDidChange(value: Double){
+//        tipPercentages[2] = value
+//    }
+//    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        var settingsVC = segue.destinationViewController as! SettingsController
+//        settingsVC.delegate = self
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func changeMinTip(newMin: Double) -> (){
-        self.tipPercentages[0] = newMin
-    }
+//    func changeMinTip(newMin: Double) -> (){
+//        self.tipPercentages[0] = newMin
+//    }
     
     @IBAction func onEditingChanged(sender: AnyObject) {
-
+        //tipControl.setTitle(String(format: "%.f%" , tipPercentages[0]*100), forSegmentAtIndex: 0)
+        
         billAmount = NSString(string: billField.text).doubleValue
         var tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         tipAmount = billAmount * tipPercentage

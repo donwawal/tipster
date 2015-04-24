@@ -153,7 +153,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="S9C-fo-ERY">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="18" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="S9C-fo-ERY">
                                 <rect key="frame" x="490" y="118" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="Iua-mH-D0k" eventType="valueChanged" id="PiH-Qw-tHV"/>
@@ -171,7 +171,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="z4l-Kj-bdq">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="20" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="z4l-Kj-bdq">
                                 <rect key="frame" x="490" y="169" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="Iua-mH-D0k" eventType="valueChanged" id="f9W-YM-5td"/>
@@ -189,7 +189,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-U0-Gls">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="22" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="hsl-U0-Gls">
                                 <rect key="frame" x="490" y="220" width="94" height="29"/>
                                 <connections>
                                     <action selector="stepperValueChanged:" destination="Iua-mH-D0k" eventType="valueChanged" id="NV3-w1-pCh"/>
